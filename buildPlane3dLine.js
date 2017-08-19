@@ -33,13 +33,14 @@ function buildPlane() {
 		return ('rgb(' + r + ', ' + g + ', ' + b + ')');
 	};
 	
-	
+	//Вспомогательные переменные
 	const PI = Math.PI;
 	const maxX = space.width;
 	const maxY = space.height;
 	const kx = 7, ky = 4.5;
 	const R0 = maxX/(kx*Math.cos(10*PI/180)+ky*Math.cos(30*PI/180));
 	const yd = kx*R0*Math.sin(10*PI/180), yu = ky*R0*Math.sin(30*PI/180);
+	//Функция преобразующая координаты x, y, z пространства в координаты xc, yc плоскости canvas
 	const GraphToCanvas = (x, y, z) => {
 		let xc = 0, yc = 0;
 		
@@ -55,7 +56,7 @@ function buildPlane() {
 		
 		return [xc, yc];
 	};
-	
+	//Прорисовка осей координат
 	context.moveTo(0, maxY-yd);
 	context.lineTo(0, yu);
 	context.moveTo(0, maxY-yd);
@@ -64,9 +65,6 @@ function buildPlane() {
 	context.lineTo(kx*R0*Math.cos(10*PI/180), maxY);
 	context.strokeStyle = "#000";
 	context.stroke();
-	
-	
-	//90, 0, 157
 	
 	//Вспомогательные переменные
 	let x, xg, y, yg, z, helparr, flag;
