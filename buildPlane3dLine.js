@@ -148,7 +148,6 @@ function buildPlane() {
 		for (x = ax; x <= bx; x += hx) {
 			z = F(x, y);
 			if (z < az || z > bz || !isFinite(z)) {
-				console.log(i, j);
 				arrPoint[i][j] = null;
 			} else {
 				arrPoint[i][j] = GraphToCanvas(x, y, z);
